@@ -90,9 +90,13 @@ jobs:
 
     - name: Install repo
       run: |
-        mkdir ~/bin
-        sudo apt -y install repo
-      
+        mkdir -p ~/.bin
+        PATH="${HOME}/.bin:${PATH}"
+        curl https://storage.googleapis.com/git-repo-downloads/repo > ~/.bin/repo
+        chmod a+rx ~/.bin/repo    
+        sudo ln -s /usr/bin/python3 /usr/bin/python
+        sudo ln -s ./.bin/repo /usr/bin/repo
+        
     - name: Initialize repo
       run: |
         mkdir workspace
