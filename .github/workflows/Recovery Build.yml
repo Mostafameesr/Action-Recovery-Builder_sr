@@ -92,9 +92,8 @@ jobs:
       run: |
         mkdir -p ~/.bin
         PATH="${HOME}/.bin:${PATH}"
-        curl https://storage.googleapis.com/git-repo-downloads/repo > ~/.bin/repo
-        chmod a+rx ~/.bin/repo    
-        sudo ln -s ~/.bin/repo /usr/bin/repo
+        git clone https://github.com/aosp-mirror/tools_repo.git
+        sudo ln -s ~/tools_repo/repo /usr/bin/repo
         
     - name: Initialize repo
       run: |
