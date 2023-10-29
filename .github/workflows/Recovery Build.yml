@@ -93,6 +93,7 @@ jobs:
         mkdir -p ~/.bin
         PATH="${HOME}/.bin:${PATH}"
         git clone https://github.com/aosp-mirror/tools_repo.git
+        chmod 777 ~/tools_repo/repo
         sudo ln -s ~/tools_repo/repo /usr/bin/repo
         
     - name: Initialize repo
